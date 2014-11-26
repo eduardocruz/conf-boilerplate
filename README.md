@@ -1,24 +1,33 @@
-*[Se você é brasileiro, clique aqui para ler a versão em Português](https://github.com/braziljs/conf-boilerplate/blob/master/README-pt.md)*
+*[Leia a documentação em Português](https://github.com/braziljs/conf-boilerplate/blob/master/README-pt.md)*
 
 ---
 
-# Conf Boilerplate
+# Conf Boilerplate [![Build Status](https://secure.travis-ci.org/braziljs/conf-boilerplate.png?branch=master)](https://travis-ci.org/braziljs/conf-boilerplate)
 
----
+![image](http://f.cl.ly/items/2i1m3z3i1a3Z0I1X472B/logo.jpg)
 
 An iniciative of [BrazilJS Foundation](http://braziljs.org) to help those people who wants to organize conferences/events and don't have too much time to create the website of it.
 
+> **Maintainer:** [Jean Carlo Emer](https://github.com/jcemer)
+
+## Table of contents
+
+* [See live demo](http://braziljs.github.io/conf-boilerplate/)
 * [How it works?](#how-it-works)
-* [Structure](#structure)
 * [Getting Started](#getting-started)
+* [Structure](#structure)
 * [Customization](#customization)
 * [Deploy](#deploy)
 * [Showcase](#showcase)
-* [Who is behind of it?](#who-is-behind-of-it)
+* [Contributing](#contributing)
+* [Who is behind it?](#who-is-behind-it)
+* [License](#license)
 
 ## How it works?
 
-We use [DocPad](https://github.com/bevry/docpad), a static generator in NodeJS, to create an easily customizable template. More than that, hosting is free via [Github Pages](http://pages.github.com) and you can use your own domain *(more information about that on [Deploy](#dom%C3%ADnio-personalizado))*
+[![image](http://f.cl.ly/items/1q3i0r3q0n3y1N070M47/Screen%20Shot%202012-11-16%20at%207.05.44%20PM.png)](http://www.youtube.com/watch?v=EI99oZI3nKY)
+
+We use [DocPad](https://github.com/bevry/docpad), a static generator in NodeJS, to create an easily customizable template. More than that, hosting is free via [GitHub Pages](http://pages.github.com) and you can use your own domain *(more information about that on [Deploy](#custom-domain))*
 
 By default, we have the following sections:
 
@@ -33,22 +42,51 @@ By default, we have the following sections:
 
 *P.S. 2: We haven't developed a highly automated and customizable solution for contact forms yet. For this reason, we recommend [Wufoo](http://wufoo.com/).*
 
+## Getting Started
+
+1. Install [Git](http://git-scm.com/downloads) and [NodeJS](http://nodejs.org/download/), if you don't have it yet.
+
+2. Now clone it:
+
+    ```sh
+    $ git clone git://github.com/braziljs/conf-boilerplate.git
+    ```
+
+3. Then go to the project's folder:
+
+    ```sh
+    $ cd conf-boilerplate
+    ```
+
+4. Install all dependencies:
+
+    ```sh
+    $ npm install
+    ```
+
+5. And finally run:
+
+    ```sh
+    $ npm run watch
+    ```
+
+Now you can see the website running in `localhost:9778` :D
+
 ## Structure
 
 The basic structure of the project is given in the following way:
 
-<pre>
+```
 .
 |-- out/
 |-- src/
 |   |-- documents
-|   |-- files
 |   |-- layouts
 |   |-- partials
-|-- docpad.cson
+|-- docpad.js
 |-- package.json
 `-- publish.sh
-</pre>
+```
 
 ### out/
 
@@ -56,11 +94,7 @@ This is where the generated files are stored, once DocPad has been runned. Howev
 
 ### [src/documents](https://github.com/braziljs/conf-boilerplate/blob/master/src/documents)
 
-Contains the file responsible for importing all sections of the application.
-
-### [src/files](https://github.com/braziljs/conf-boilerplate/tree/master/src/files)
-
-Has images, CSS, JS and [CNAME](https://github.com/braziljs/conf-boilerplate/blob/master/src/files/CNAME) that indicates the custom domain that should be used *(more information on how to use your own domain on [Deploy](#dom%C3%ADnio-personalizado))*.
+Contains the file responsible for importing all sections of the application. Also all theme's assets like images, CSS and JS.
 
 ### [src/layouts](https://github.com/braziljs/conf-boilerplate/tree/master/src/layouts)
 
@@ -70,7 +104,7 @@ Contains the default template of the application.
 
 Are blocks of code used to generate the site's main page ([index.html](https://github.com/braziljs/conf-boilerplate/blob/master/src/documents/index.html.eco)).
 
-### [docpad.cson](https://github.com/braziljs/conf-boilerplate/blob/master/docpad.cson)
+### [docpad.js](https://github.com/braziljs/conf-boilerplate/blob/master/docpad.js)
 
 Stores most settings of the application.
 
@@ -80,43 +114,13 @@ List NodeJS modules dependencies.
 
 ### [publish.sh](https://github.com/braziljs/conf-boilerplate/blob/master/publish.sh)
 
-Shell Script responsible for publishing the site via via [Github Pages](http://pages.github.com).
-
-## Getting Started
-
-1. Install [Git](http://git-scm.com/downloads) and [NodeJS](http://nodejs.org/download/), if you don't have it yet.
-
-2. Open your terminal and download [DocPad](https://github.com/bevry/docpad) through this command:
-
-		sudo npm install -fg docpad@6.8
-
-3. Install [DocPad](https://github.com/bevry/docpad):
-
-    docpad install
-
-4. Now clone it:
-
-		git clone git@github.com:braziljs/conf-boilerplate.git
-
-5. Then go to the project's folder:
-
-		cd conf-boilerplate
-
-6. Install all dependencies:
-
-		sudo npm install .
-
-7. And finally run:
-
-		docpad run
-
-Now you can see the website running in `localhost:9778` :D
+Shell Script responsible for publishing the site via via [GitHub Pages](http://pages.github.com).
 
 ## Customization
 
 The project already comes with a visual template, feel free to use it, but we recommend you create your own in order to put your own identity in the event.
 
-Anyway, we have prepared something highly customizable for you, so for most of the changes just go to the `docpad.cson` and change the value of variables.
+Anyway, we have prepared something highly customizable for you, so for most of the changes just go to the `docpad.js` and change the value of variables.
 
 ### Basic information about the conference
 
@@ -139,32 +143,51 @@ Do you want to change the cover image, Google Analytics code or favicon? Go ahea
 
 ```
 site:
-  url: "http://confboilerplate.com"
-  favicon: "http://braziljs.org/favicon.ico"
+  theme: "yellow-swan"
+  url: "http://braziljs.github.io/conf-boilerplate/"
   googleanalytics: "UA-33656081-1"
-  images:
-    cover: "http://f.cl.ly/items/2X28422q1e3w0C2U1P3H/866591_24254643.jpg"
-    facebook: "http://braziljs.org/img/fb-share.jpg"
 ```
 
 ### Active sections
 
-Still don't get a full schedule of the event? No problem, just set `schedule` variable to `false`.
+Still don't get a full schedule of the event? No problem, just comment out `schedule` line (using `#`).
 
-Still don't get who is going to speak? Ok, just set `speakers` variable to `false`.
+Still don't get who is going to speak? Ok, just comment out `speakers` line (using `#`).
 
 And so on.
 
 ```
-sections:
-  about: true
-  location: true
-  speakers: true
-  schedule: true
-  sponsors: true
-  partners: true
-  contact: false
+sections: [
+  "about"
+  "location"
+  #"speakers"
+  #"schedule"
+  "sponsors"
+  "partners"
+  "contact"
+]
 ```
+
+You can also change order in which they appear on page and in navigation by changing order of lines here!
+
+### Labels (i18n)
+
+If you want to use different words than default or different language
+just change labels for corresponding elements:
+
+
+```
+labels:
+  about: "Sobre"
+  location: "Localização"
+  speakers: "Palestrantes"
+  schedule: "Agenda"
+  sponsors: "Patrocinadores"
+  partners: "Parceiros"
+  contact: "Contato"
+```
+
+You can also use this object to define other labels, which you would like to access in your templates.
 
 ### Speakers List
 
@@ -184,7 +207,7 @@ schedule: [
 ]
 ```
 
-Do you want to list an attribute of the speaker that is not there? Okay just add it on `docpad.cson` and then show it with `<%= speaker.yourNewAttribute %>` on [speakers.html.eco](https://github.com/braziljs/conf-boilerplate/blob/master/src/partials/section/speakers.html.eco).
+Do you want to list an attribute of the speaker that is not there? Okay just add it on `docpad.js` and then show it with `<%= speaker.yourNewAttribute %>` on [speakers.html.eco](https://github.com/braziljs/conf-boilerplate/blob/master/src/partials/section/speakers.html.eco).
 
 ### List of another items on Agenda
 
@@ -213,27 +236,26 @@ partners: [
 
 ## Deploy
 
-We don't like to centralize the power of deploy in one person, so we'll use [Github Pages](http://pages.github.com) that is free.
+We don't like to centralize the power of deploy in one person, so we'll use [GitHub Pages](http://pages.github.com) that is free. You just need to run:
 
-* Give permission to run the publish.sh script - `chmod +x publish.sh`
-* Run `sh publish.sh` on the root of the project.
+```sh
+$ npm run deploy
+```
 
-Wait a few minutes until Github send you an email telling that everything went well. Then just access: `http://yourUser.github.com/yourFork`
-
-P.S.: Remember to remove `CNAME` file that is located on `src/files` folder, if you want to use the predefined Github url.
+Wait a few minutes until GitHub send you an email telling that everything went well. Then just access: `http://yourUser.github.io/yourFork`
 
 ### Custom domain
 
-If you don't want to use Github domain, you can use your own with a few steps.
+If you don't want to use GitHub domain, you can use your own with a few steps.
 
-1. Change the `CNAME` file that is located on `src/files` folder and fill with your domain: `yourevent.com`. [See the example](https://github.com/braziljs/conf-boilerplate/blob/master/src/files/CNAME).
-2. Change the DNS of your domain [following Github instructions](https://help.github.com/articles/setting-up-a-custom-domain-with-pages).
+1. Create a `CNAME` file under `src/files` folder and fill with your domain: `yourevent.com`.
+2. Change the DNS of your domain [following GitHub instructions](https://help.github.com/articles/setting-up-a-custom-domain-with-pages).
 
-### How to Deploy without Github Pages
+### How to Deploy without GitHub Pages
 
 If you want to use your own server to host the website:
 
-* Run `docpad generate` on the root of the project.
+* Run `npm run generate` on the root of the project.
 
 This command will generate a folder called `out` that contains just static files, then just upload them to your server.
 
@@ -242,11 +264,48 @@ This command will generate a folder called `out` that contains just static files
 See the conferences that already used this project as a kickstart:
 
 * [FrontInterior](http://frontinterior.com.br)
+* [Random Hacks of Kindness](http://www.myskills.com.br/rhok-recife/)
+* [yoLab](http://yodojo.github.com/yoLab/) ([source code](https://github.com/yodojo/yoLab))
+* [Payphone Hackday](http://payphonehackday.com/) ([source code](https://github.com/octanebaby/conf-boilerplate))
+* [RSJS](http://rsjs.org/) ([source code](https://github.com/braziljs/rsjs))
+* [Front in BH](http://frontinbh.com.br/) ([source code](https://github.com/braziljs/front-in-bh))
+* [Front in Rio](http://frontinrio.com.br/)
+* [Front in Bahia](http://frontinbahia.com.br/)
+* [Dev in Company BH](http://devincompanybh.github.io/setembro-2013/) ([source code](https://github.com/devincompanybh/setembro-2013/))
+* [TEDx Recife](http://tedxrecife.com.br/)
+* [DevFest](http://www.devfest.com.br/2013/)
+* [DevFest Sul](http://www.devfestsul.com.br/)
+* [Front in Floripa](http://frontinfloripa.com.br/)
+* [Front in POA](http://frontinpoa.com.br/) ([source code](https://github.com/braziljs/front-in-poa))
+* [mloc.js](http://mloc-js.com/2014/)
+* [Craft Conf](http://craft-conf.com/2014/) ([source code](https://github.com/ustream/craftconf))
+* [Stretch Conference](http://stretchcon.com/2013/)
+* [Meet.us()](http://meetus.github.io/) ([source code](https://github.com/meetus/meetus.github.io))
 
-## Who is behind of it?
+Have you created a website using ConfBoilerplate? Let's us know =D
+
+## Forks
+
+* [Ruby version of ConfBoilerplate made with Jekyll by Mauro George](https://github.com/maurogeorge/conf_boilerplate_ruby)
+
+## Contributing
+
+If you want to submit a pull request, please do it in `dev` branch.
+
+* `master` contains the stable version of it.
+* `dev` contains features that are being developed.
+
+## Who is behind it?
 
 We're a group of developers who have been through hard times organizing conferences around Brazil and now just want to help another people to do this hard task.
 
-**Project Lead**: [Zeno Rocha](http://github.com/zenorocha)
+**Created by**:
+
+* [Zeno Rocha](http://github.com/zenorocha)
+* [Bernard De Luna](http://github.com/bernarddeluna)
 
 Special thanks to all community members for feedbacks and contributions.
+
+## License
+
+[MIT License](http://braziljs.mit-license.org/) © BrazilJS Foundation

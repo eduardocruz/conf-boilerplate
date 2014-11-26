@@ -1,3 +1,5 @@
+@import "_mixins.less";
+
 /* =============================================================================
    MAIN LAYOUT
    ========================================================================== */
@@ -78,11 +80,7 @@ nav {
   line-height:1em;
   vertical-align: center;
   letter-spacing: -.02em;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  .transition(all 0.3s ease-out);
 }
 .call-action-area .call-action-link:hover, .call-action-area .call-action-link:focus, .btn:hover, .btn:focus {top:0;}
 
@@ -170,7 +168,7 @@ nav {
   display: inline-block;
   margin: 0 30px 30px 0;
 }
-.sponsor-link, .partner-link {
+.sponsor--link, .partner-link {
   display: block;
   width: 150px;
   height:150px;
@@ -182,7 +180,7 @@ nav {
 /* =============================================================================
    CONTATO
    ========================================================================== */
-.form-contato label{
+.form label{
   font-size:16px;
   display: block;
   margin-bottom:.5em;
@@ -199,19 +197,16 @@ nav {
   margin-right:25px;
 }
 .control-group-email {margin-right:0;}
-.form-contato input[type=text], .form-contato input[type=email], .form-contato textarea{
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+.form input[type=text], .form input[type=email], .form textarea{
+  .box-sizing(border-box);
   display: block;
   width:100%;
   min-height:15px;
   padding:10px;
   font-size:14px;
 }
-.form-contato textarea {height:300px;}
-.form-contato .btn {float:right;}
+.form textarea {height:300px;}
+.form .btn {float:right;}
 
 
 
@@ -223,10 +218,7 @@ nav {
   .wrapper {
     width: 100%;
     padding: 0 20px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
+    .box-sizing(border-box);
   }
   .about {margin: 0;}
 }
@@ -261,7 +253,7 @@ nav {
 
   /* partners */
   .sponsor-item, .partner-item {margin: 0 5px 10px 0;}
-  .sponsor-link, .partner-link {
+  .sponsor--link, .partner-link {
     width: 95px;
     height:95px;
     line-height: 95px;
@@ -274,7 +266,7 @@ nav {
     float:none;
     margin-right:0;
   }
-  .form-contato .btn {margin-bottom:50px;}
+  .form .btn {margin-bottom:50px;}
 }
 
 @media only screen and (max-width : 480px) {
@@ -321,7 +313,7 @@ nav {
     padding: 0;
   }
   .speakers-bio {display: none;}
-} 
+}
 
 @media only screen and (max-width : 321px) {
   .logo-name {
@@ -333,9 +325,9 @@ nav {
 
   /* partners */
   .sponsor-item, .partner-item {margin: 0 12px 15px 0;}
-  .sponsor-link, .partner-link {
+  .sponsor--link, .partner-link {
     width: 115px;
     height:115px;
     line-height: 115px;
   }
-} 
+}

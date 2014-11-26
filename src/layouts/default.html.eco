@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html itemscope itemtype="http://schema.org/Event">
 <head>
 
-  <title><%= @conf.name %></title>
+  <title itemprop="name"><%= @conf.name %></title>
 
   <meta charset="utf-8">
   <meta name="author" content="<%= @conf.name %>">
@@ -16,15 +16,14 @@
   <meta property="og:url" content="<%= @site.url %>">
   <meta property="og:title" content="<%= @conf.name %>">
   <meta property="og:description" content="<%= @conf.description %>">
-  <meta property="og:image" content="<%= @site.images.facebook %>">
+  <meta property="og:image" content="<%= @getUrl() %>/<%= @getTheme() %>/img/badge.jpg">
   <!-- / FACEBOOK -->
 
-  <link rel="shortcut icon" href="<%= @site.favicon %>" type="image/x-icon" />
+  <link rel="shortcut icon" href="<%= @getTheme() %>/img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="<%= @getTheme() %>/img/apple-touch-icon.png">
 
   <!-- STYLES -->
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
-  <link rel="stylesheet" type="text/css" href="css/base.css">
-  <link rel="stylesheet" type="text/css" href="css/theme.css">
+  <link rel="stylesheet" type="text/css" href="<%= @getTheme() %>/css/main.css">
   <!-- / STYLES -->
 
 </head>
@@ -36,26 +35,26 @@
     <%-@partial('header.html.eco', @)%>
 
     <!-- CONTENT -->
-    <section class="content" id="content">
+    <div class="content" id="content">
       <div class="wrapper">
         <%- @content %>
+        <!-- FOOTER -->
+        <footer class="footer">
+          <p>Made with ♥ by <a href="https://github.com/braziljs/conf-boilerplate">Conf Boilerplate</a> :)</p>
+        </footer>
+        <!-- / FOOTER -->
       </div>
-    </section>
+    </div>
     <!-- / CONTENT -->
-
-    <hr />
-
-    <!-- FOOTER -->
-    <footer class="footer"></footer>
-    <!-- / FOOTER -->
 
   </div>
 
-  <script src="js/jquery.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="<%= @getTheme() %>/js/jquery.js"><\/script>')</script>
 
   <% if @conf.address != '': %>
   <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-  <script src="js/map.js"></script>
+  <script src="<%= @getTheme() %>/js/main.js"></script>
   <% end %>
 
   <!-- GOOGLE ANALYTICS -->

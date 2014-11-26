@@ -1,15 +1,9 @@
-<% if @sections.location == true: %>
+<h2 class="section-title"><%= @labels['location'] %></h2>
 
-  <!-- LOCATION -->
-  <section class="location" id="location">
-    <h2 class="section-title">Location</h2>
+<p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+  <span itemprop="streetAddress"><%= @conf.address %>. </span>
+  <span itemprop="addressLocality"><%= @conf.city %></span>,
+  <span itemprop="addressRegion"> <%= @conf.state %></span>
+</p>
 
-    <% if @conf.address != '': %>
-      <p><%= @conf.address %></p>
-      <div id="map-canvas" class="location-area" data-address="<%= @conf.address %>"></div>
-    <% end %>
-
-  </section>
-  <!-- / LOCATION -->
-
-<% end %>
+<div id="map-canvas" class="location-area" data-address="<%= @conf.address %>"></div>
